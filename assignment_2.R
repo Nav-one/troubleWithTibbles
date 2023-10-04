@@ -64,5 +64,16 @@ morning_summer_C <- tibble("minimum_temp" = min(filterMorningSummer$temperature_
                            "median_temp" =median(filterMorningSummer$temperature_C), 
                            "maximum_temp" =max(filterMorningSummer$temperature_C))
 
+# filter the 2022 data between the hours of 5pm and 8pm and only during the summer months
+filterEveningSummer <- filter(stearnsWharfTemp_2022_C, theHour %in% c(17, 18, 19 , 20),
+                              theMonth %in% c(6, 7, 8))
+
+# creating a tibble that reports the summary stats for the evening summer
+evening_summer_C <- tibble("minimum_temp" = min(filterEveningSummer$temperature_C), 
+                           "average_temp" =mean(filterEveningSummer$temperature_C), 
+                           "median_temp" =median(filterEveningSummer$temperature_C), 
+                           "maximum_temp" =max(filterEveningSummer$temperature_C))
+
+
 
 
